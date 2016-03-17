@@ -1,5 +1,9 @@
 # Trabalho de logica de programação EP5
 
+##### Clonar
+vá até a pasta onde deseja clonar o projeto e digite:
+
+git clone https://github.com/ProjetoChernobyl/ep5.git
 
 ##### Dados gerais
 Projeto: 	Ep5    
