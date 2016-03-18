@@ -1,9 +1,23 @@
 package org.alvorada.cc.ep5.util;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Tools {
 	
-	public int[] stringToIntArray(){
-		// TODO recebe uma string e transfroma em array de inteiros
-		return null;
+	private int[] invertsInt;
+	
+	public int[] stringToIntArray()throws IOException {
+		
+		readFile = new BufferedReader(new FileReader(filePath));
+		String[] invertsString = readFile.readLine().split(" ");
+
+		this.invertsInt = new int[invertsString.length];
+		
+		for (int i = 0; i < invertsString.length; i++) {
+			this.invertsInt[i] = Integer.parseInt(invertsString[i]);
+		}
+		return invertsInt;
 	}
 }
