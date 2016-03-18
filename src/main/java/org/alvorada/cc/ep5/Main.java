@@ -1,7 +1,5 @@
 package org.alvorada.cc.ep5;
 
-import java.io.IOException;
-
 import org.alvorada.cc.ep5.io.Reader;
 import org.alvorada.cc.ep5.lists.LinkedList;
 import org.alvorada.cc.ep5.lists.StructBuilder;
@@ -29,7 +27,7 @@ public class Main {
     	StructBuilder structBuilder = new StructBuilder();
     	LinkedList linkedList = new LinkedList();
     	
-    	System.out.println(a);
+    
     	
     }
 }

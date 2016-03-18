@@ -1,17 +1,13 @@
 package org.alvorada.cc.ep5.util;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
 public class Tools {
 	
 	private int[] invertsInt;
 	
-	public int[] stringToIntArray()throws IOException {
+	public int[] stringToIntArray(String readFile) {
 		
-		readFile = new BufferedReader(new FileReader(filePath));
-		String[] invertsString = readFile.readLine().split(" ");
+
+		String[] invertsString = readFile.split(" ");
 
 		this.invertsInt = new int[invertsString.length];
 		

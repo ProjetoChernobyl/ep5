@@ -28,27 +28,21 @@ public class Reader {
 		return string;
 	}
 
-	public int[] readFileToArray(String filePath) {
+	public String readFileToArray(String filePath) {
 		// TODO talvez não seja necessário ele lê um arquivo e retorna um array
 		// de inteiros
 
 		Path coordenada = Paths.get(filePath);
 		String string = null;
-		int[] arrayCoor = null;
+		
 		try {
 			
 			BufferedReader reader = Files.newBufferedReader(coordenada, utf8);
 			string = reader.readLine();
-			String array[] = string.split(" ");
-			arrayCoor = new int[array.length];
-			
-			for (int i = 0; i < array.length; i++) {
-				arrayCoor[i]= Integer.parseInt(array[i]);
-			}
-			
+
 		} catch (Exception e) {
 			
 		}
-		return arrayCoor;
+		return string;
 	}
 }
