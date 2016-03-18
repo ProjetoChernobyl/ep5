@@ -1,23 +1,17 @@
 package org.alvorada.cc.ep5.io;
 
-import static org.junit.Assert.*;
-
+import org.junit.Assert;
 import org.junit.Test;
 
 public class ReaderTest {
-
+	
+	Reader classUnderTest = new Reader();
+		
 	@Test
-	public void testReadFile() {
-		Reader reader = new Reader();
-		String separator = System.getProperty("file.separator"); 
-		final String PATH_GENOMA = "resources" + separator + "genoma";
-		final String PATH_COOR = "resources" + separator + "inverte";
-		reader.readFile(PATH_GENOMA, PATH_COOR);
+	public void readFileTest() {
+		String actual = classUnderTest.readFile("src/test/java/org/alvorada/cc/ep5/files/genoma");
+		String expected = "TTACTGCATG";
+		Assert.assertEquals(expected, actual);
 	}
-
-//	@Test
-//	public void testReadFileToArray() {
-//		fail("Not yet implemented");
-//	}
 
 }
