@@ -41,6 +41,14 @@ public class LinkedListTest {
 		int[] inverte = {3, 6};
 		Node[] nodes = initNodes();
 		
+		String actual1 = "";
+		String expected1 = "TTGTCACATG";
+		
+		for (int i = 0; i < nodes.length; i++) {
+			actual1.concat(String.valueOf(nodes[i]));
+		}
+		Assert.assertEquals(expected1, actual1);
+		
 		// TODO teste não finalizado
 		Node[] actuals = classUnderTest.changeSubsequence(inverte, nodes);
 		Node[] expecteds = nodes;
