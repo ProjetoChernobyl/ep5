@@ -21,7 +21,7 @@ public class Main {
 	public static final String PATH_COOR = "resources" + separator + "inverte";
 	public static final String PATH_OUTPUT_FILE = "resources" + separator + "out";
 
-	static Node rootNode = new Node();
+	static Node rootNode = new Node('R');
 
 	public static void main(String[] args) throws IOException {
 		
@@ -55,7 +55,7 @@ public class Main {
 		linkedList.changeSubsequence(coordenadas, nodes);
 		
 		/* Retornando o conteúdo alterado e salvando em um arquivo de saída */
-		writer.writeFile(rootNode.toString());
+		writer.writeFile(PATH_OUTPUT_FILE, rootNode.toString());
 	}
 
 }

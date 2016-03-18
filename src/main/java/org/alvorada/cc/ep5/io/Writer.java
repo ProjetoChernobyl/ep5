@@ -6,15 +6,13 @@ import java.io.IOException;
 
 public class Writer {
 	
-	String separator = System.getProperty("file.separator");
-	String caminhoArquivo = "resources" + separator + "genoma";
 
-	public String writeFile(String twistedGenomaLine) {
+	public String writeFile(String filePath, String twistedGenomaLine) {
 
 		BufferedWriter writer = null;
 		try {
 			writer = new BufferedWriter(
-					new FileWriter(caminhoArquivo));
+					new FileWriter(filePath));
 			writer.write(twistedGenomaLine);
 
 		} catch (IOException e) {
