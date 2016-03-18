@@ -20,6 +20,7 @@ public class Main {
 	public static final String PATH_GENOMA = "resources" + separator + "genoma";
 	public static final String PATH_COOR = "resources" + separator + "inverte";
 	public static final String PATH_OUTPUT_FILE = "resources" + separator + "out";
+<<<<<<< HEAD
 	static Node rootNode = new Node();
 
 	public static void main(String[] args) throws IOException {
@@ -56,6 +57,24 @@ public class Main {
 		/* Retornando o conteúdo alterado e salvando em um arquivo de saída */
 		writer.writeFile(rootNode.toString());
 	}
+=======
+	
+	
+    @SuppressWarnings("unused")
+	public static void main( String[] args ){
+    	
+    	Reader reader = new Reader();
+        reader.readFile(PATH_GENOMA);
+        reader.readFile(PATH_COOR);
+
+    	Tools tools = new Tools();
+    	StructBuilder structBuilder = new StructBuilder();
+    	LinkedList linkedList = new LinkedList();
+    	
+    
+    	
+    }
+>>>>>>> a74d6e91bdd5c10c69d49fac4900cf841e308e44
 }
 
 

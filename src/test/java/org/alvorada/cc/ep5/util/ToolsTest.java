@@ -1,7 +1,11 @@
 package org.alvorada.cc.ep5.util;
 
 import org.junit.Assert;
+<<<<<<< HEAD
 import org.junit.Test;
+=======
+
+>>>>>>> a74d6e91bdd5c10c69d49fac4900cf841e308e44
 
 
 public class ToolsTest {
