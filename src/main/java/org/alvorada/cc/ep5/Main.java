@@ -22,7 +22,8 @@ public class Main {
 	public static void main( String[] args ){
     	
     	Reader reader = new Reader();
-    	String a = reader.readFile(PATH_GENOMA,PATH_COOR);
+        reader.readFile(PATH_GENOMA);
+        reader.readFile(PATH_COOR);
 
     	Tools tools = new Tools();
     	StructBuilder structBuilder = new StructBuilder();
