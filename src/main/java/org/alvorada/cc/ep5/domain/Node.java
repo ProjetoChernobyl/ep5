@@ -1,15 +1,24 @@
 package org.alvorada.cc.ep5.domain;
 
 public class Node {
-	
-	public static int id  = 0;
+
+	public static int id = 0;
 	public char value;
 	private Node next;
-	
+	private Node previous;
+	private Node first;
+	private Node last;
+	int totalElements;
+
 	@SuppressWarnings("static-access")
-	public Node(char value){
+	public Node(Node next, char value){
+		this.next = next;
 		this.value = value;
-		this.next = null;
+		this.id++;
+	}
+	@SuppressWarnings("static-access")
+	public Node(char value) {
+		this.value = value;
 		this.id++;
 	}
 
@@ -29,17 +38,62 @@ public class Node {
 		this.next = next;
 	}
 
+	public Node getPrevious() {
+		return previous;
+	}
+
+	public void setPrevious(Node previous) {
+		this.previous = previous;
+	}
+
 	public static int getId() {
 		return id;
 	}
+
+	public String toString() {
+		if (this.totalElements == 0) {
+			return "[]";
+		}
+		StringBuilder builder = new StringBuilder("");
+		Node current = first;
+
+		for (int i = 0; i < this.totalElements - 1; i++) {
+			builder.append(current.getValue());
+			builder.append("");
+			current = current.getNext();
+		}
+		builder.append(current.getValue());
+		builder.append("");
+
+		return builder.toString();
+	}
+
+	public void addInTheBeginning(char genoma) {
+		if (this.totalElements == 0) {
+			Node newNode = new Node(genoma);
+			this.first = newNode;
+			this.last = newNode;
+		} else {
+			Node newNode = new Node(this.first, genoma);
+			this.first.setPrevious(newNode);
+			this.first = newNode;
+		}
+		this.totalElements++;
+	}
 	
+	public int size(){
+		return this.totalElements;
+	}
+	
+	
+
 	public String linkedListToString(Node[] node) {
-		
+
 		String result = "";
 		for (int i = 0; i < node.length; i++) {
 			result += node[i].getValue();
 		}
 		return result;
 	}
-	
+
 }
