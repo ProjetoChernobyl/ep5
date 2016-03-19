@@ -33,4 +33,13 @@ public class Node {
 		return id;
 	}
 	
+	public String linkedListToString(Node[] node) {
+		
+		String result = "";
+		for (int i = 0; i < node.length; i++) {
+			result += node[i].getValue();
+		}
+		return result;
+	}
+	
 }
