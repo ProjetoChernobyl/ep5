@@ -11,13 +11,8 @@ public class Node {
 	int totalElements;
 
 	@SuppressWarnings("static-access")
-	public Node(Node next, char value){
-		this.next = next;
-		this.value = value;
-		this.id++;
-	}
-	@SuppressWarnings("static-access")
 	public Node(char value) {
+		this.next = null;
 		this.value = value;
 		this.id++;
 	}
@@ -70,22 +65,23 @@ public class Node {
 
 	public void addInTheBeginning(char genoma) {
 		if (this.totalElements == 0) {
-			Node newNode = new Node(genoma);
-			this.first = newNode;
-			this.last = newNode;
+			Node nova = new Node(genoma);
+			this.first = nova;
+			this.last = nova;
+			this.totalElements++;
 		} else {
-			Node newNode = new Node(this.first, genoma);
-			this.first.setPrevious(newNode);
-			this.first = newNode;
+			Node nova = new Node(genoma);
+			this.last.setNext(nova);
+			nova.setPrevious(this.last);
+			this.last = nova;
+			this.totalElements++;
 		}
 		this.totalElements++;
 	}
-	
-	public int size(){
+
+	public int size() {
 		return this.totalElements;
 	}
-	
-	
 
 	public String linkedListToString(Node[] node) {
 
