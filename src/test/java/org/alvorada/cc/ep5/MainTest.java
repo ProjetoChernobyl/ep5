@@ -1,38 +1,21 @@
 package org.alvorada.cc.ep5;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
-/**
- * Unit test for simple App.
- */
-public class MainTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public MainTest( String testName )
-    {
-        super( testName );
-    }
+import org.alvorada.cc.ep5.io.Reader;
+import org.junit.Assert;
+import org.junit.Test;
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( MainTest.class );
-    }
+public class MainTest {
+	
+		
+	@Test
+	public void testMain() {
+		Reader reader = new Reader();
+		new Main();
+		
+		String actual = reader.readFile(Main.PATH_OUTPUT_FILE);
+		String expected = "TTGTACCATG";
+		Assert.assertEquals(expected, actual);
+	}
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
 }
