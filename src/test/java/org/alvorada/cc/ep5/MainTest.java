@@ -11,10 +11,10 @@ public class MainTest {
 	@Test
 	public void testMain() {
 		Reader reader = new Reader();
-		new Main();
+		Main menu = new Main();
 		
-		String actual = reader.readFile(Main.PATH_OUTPUT_FILE);
-		String expected = "TTGTACCATG";
+		String actual = reader.readFile(menu.PATH_GENOMA);
+		String expected = "TTACTGCATG";
 		Assert.assertEquals(expected, actual);
 	}
 

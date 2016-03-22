@@ -2,6 +2,13 @@ package org.alvorada.cc.ep5;
 
 import java.io.IOException;
 
+import org.alvorada.cc.ep5.domain.Node;
+import org.alvorada.cc.ep5.io.Reader;
+import org.alvorada.cc.ep5.io.Writer;
+import org.alvorada.cc.ep5.lists.LinkedList;
+import org.alvorada.cc.ep5.lists.StructBuilder;
+import org.alvorada.cc.ep5.util.Tools;
+
 /**
  * Faculdades Alvorada de Maringa
  * Disciplina de Lógica de programação orientada a objetos
@@ -17,7 +24,6 @@ public class Main {
 	static Node rootNode = new Node('R');
 
 	public static void main(String[] args) throws IOException {
-		
 		/* Istanciando objetos das classes utilitárias */
 		Reader reader = new Reader();
 		Tools tools = new Tools();
@@ -27,6 +33,7 @@ public class Main {
 
 		/* Ler o arquivo Genoma */
 		String genomaFile = reader.readFile(PATH_GENOMA);
+		System.out.println(genomaFile);
 
 		/* Ler o arquivo de coordenadas inverte */
 		String inverteFile = reader.readFile(PATH_COOR);

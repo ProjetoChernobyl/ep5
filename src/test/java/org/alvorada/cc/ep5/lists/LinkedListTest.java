@@ -13,7 +13,7 @@ public class LinkedListTest {
 		int[] inverte = {3, 6};
 		
 		String actual = classUnderTest.changeSubsequence(inverte, "TTACTGCATG");
-		String expected = "TTGTCACATG";
+		String expected = "TTGCTACATG";
 		
 		Assert.assertEquals(expected, actual);
 	}
