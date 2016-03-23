@@ -1,6 +1,8 @@
 package org.alvorada.cc.ep5.lists;
 
 import org.alvorada.cc.ep5.domain.Node;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class LinkedListTest {
 	

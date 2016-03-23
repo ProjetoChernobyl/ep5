@@ -1,6 +1,6 @@
 package org.alvorada.cc.ep5.lists;
 
-import org.alvorada.cc.ep5.Main;
+import org.alvorada.cc.ep5.domain.Node;
 
 /**
  * Classe com os métodos para alterar as posições de uma lista
