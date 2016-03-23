@@ -1,6 +1,6 @@
 package org.alvorada.cc.ep5.lists;
 
-import org.alvorada.cc.ep5.domain.Node;
+import org.alvorada.cc.ep5.Main;
 
 /**
  * Classe com os métodos para alterar as posições de uma lista
@@ -18,7 +18,7 @@ public class LinkedList {
 	 * @param nodes
 	 * @return Node[]
 	 */
-	public Node[] changeSubsequenceSchemaTwo(int[] coordenadasDasSubsequencias, Node[] nodes) {
+	public Node[] changeSubsequenceSchemaTwo(int[] coordenadasDasSubsequencias, Node[] nodes, Node rootNode) {
 
 		for (int i = 0; i < coordenadasDasSubsequencias.length;) {
 			int coordenadaInicial = coordenadasDasSubsequencias[i];
@@ -32,8 +32,8 @@ public class LinkedList {
 			if (coordenadaInicial != coordenadaFinal) {
 
 				if (begin == 0) {
-					changeInitialPosition(begin, end, nodes);
-				} else if (end == nodes.length) {
+					changeInitialPosition(begin, end, nodes, rootNode);
+				} else if (coordenadaFinal == nodes.length) {
 					changeLastPosition(begin, end, nodes);
 				} else {
 					changeMiddlePositions(begin, end, nodes);
@@ -52,12 +52,14 @@ public class LinkedList {
 	 * @param end
 	 * @param nodes
 	 */
-	private void changeInitialPosition(int begin, int end, Node[] nodes) {
+	public void changeInitialPosition(int begin, int end, Node[] nodes, Node rootNode) {
+		
 		/*
 		 * TODO use o código do método midlleposition como exemplo a problema
 		 * esta na posição inicial para resolver use o inicio real do aray que é
 		 * Main.rootNode ele está na posição -1
 		 */
+		
 
 	}
 
@@ -69,7 +71,7 @@ public class LinkedList {
 	 * @param end
 	 * @param nodes
 	 */
-	private void changeLastPosition(int begin, int end, Node[] nodes) {
+	public void changeLastPosition(int begin, int end, Node[] nodes) {
 		int beforeBegin = begin - 1;
 
 		nodes[beforeBegin].setNext(nodes[end]);
@@ -77,6 +79,7 @@ public class LinkedList {
 		for (int j = end; j > begin; j--) {
 			nodes[j].setNext(nodes[j - 1]);
 		}
+
 	}
 
 	/**
