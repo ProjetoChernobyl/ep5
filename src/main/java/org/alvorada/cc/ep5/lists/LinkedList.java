@@ -59,7 +59,18 @@ public class LinkedList {
 		 * esta na posição inicial para resolver use o inicio real do aray que é
 		 * Main.rootNode ele está na posição -1
 		 */
+		 
+		int beforeBegin = begin - 1;
+
+		int afterEnd = end + 1;
 		
+		rootNode.setNext(nodes[end-1]);
+		
+		for (int j = end-1; j > beforeBegin; j--) {
+			nodes[j].setNext(nodes[j - 1]);
+		}
+
+		nodes[begin].setNext(nodes[afterEnd]);
 
 	}
 
