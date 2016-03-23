@@ -2,13 +2,6 @@ package org.alvorada.cc.ep5;
 
 import java.io.IOException;
 
-import org.alvorada.cc.ep5.domain.Node;
-import org.alvorada.cc.ep5.io.Reader;
-import org.alvorada.cc.ep5.io.Writer;
-import org.alvorada.cc.ep5.lists.LinkedList;
-import org.alvorada.cc.ep5.lists.StructBuilder;
-import org.alvorada.cc.ep5.util.Tools;
-
 /**
  * Faculdades Alvorada de Maringa
  * Disciplina de Lógica de programação orientada a objetos
@@ -55,7 +48,7 @@ public class Main {
 		Node[] nodes = structBuilder.stringToLinkedListInsideArray(genomaFile);
 		
 		/* O efetivamente invertendo as posições do array */
-		nodes = linkedList.changeSubsequenceSchemaTwo(coordenadas, nodes);
+		nodes = linkedList.changeSubsequenceSchemaTwo(coordenadas, nodes, rootNode);
 		
 		String result = rootNode.toString();
 		
