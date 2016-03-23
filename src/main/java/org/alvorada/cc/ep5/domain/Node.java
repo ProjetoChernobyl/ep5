@@ -4,15 +4,21 @@ public class Node {
 
 	public static int id = 0;
 	public char value;
-	private Node next;
-	private Node previous;
-	private Node first;
-	private Node last;
+	private Node next = null;
+	private Node previous = null;
+	private Node first = null;
+	public Node last = null;
 	int totalElements;
 
 	@SuppressWarnings("static-access")
+	public Node(Node next, char value) {
+		this.next = next;
+		this.value = value;
+		this.id++;
+	}
+
+	@SuppressWarnings("static-access")
 	public Node(char value) {
-		this.next = null;
 		this.value = value;
 		this.id++;
 	}
@@ -52,12 +58,11 @@ public class Node {
 		StringBuilder builder = new StringBuilder("");
 		Node current = first;
 
-		for (int i = 0; i < this.totalElements - 1; i++) {
+		while(current!=null) {
 			builder.append(current.getValue());
-			builder.append("");
 			current = current.getNext();
 		}
-		builder.append(current.getValue());
+//		builder.append(current.getValue());
 		builder.append("");
 
 		return builder.toString();
@@ -65,18 +70,30 @@ public class Node {
 
 	public void addInTheBeginning(char genoma) {
 		if (this.totalElements == 0) {
-			Node nova = new Node(genoma);
-			this.first = nova;
-			this.last = nova;
-			this.totalElements++;
+			Node newNode = new Node(genoma);
+			this.first = newNode;
+			this.last = newNode;
 		} else {
-			Node nova = new Node(genoma);
-			this.last.setNext(nova);
-			nova.setPrevious(this.last);
-			this.last = nova;
-			this.totalElements++;
+			Node newNode = new Node(this.first, genoma);
+			this.first.setPrevious(newNode);
+			this.first = newNode;
 		}
 		this.totalElements++;
+	}
+
+	public void addInTheBeginning(Node node) {
+		
+		if (this.totalElements == 0) {
+			this.first = node;
+			this.last = node;
+			this.next = node;
+			this.previous = this;
+		} else {
+			node.setNext(first);
+			node.setPrevious(this);
+			this.first = node;
+		}
+		this.totalElements++;		
 	}
 
 	public int size() {
@@ -90,6 +107,28 @@ public class Node {
 			result += node[i].getValue();
 		}
 		return result;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + value;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Node other = (Node) obj;
+		if (value != other.value)
+			return false;
+		return true;
 	}
 
 }

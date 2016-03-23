@@ -25,7 +25,6 @@ public class NodeTest {
 		add.addInTheBeginning('J');
 		add.addInTheBeginning('H');
 		add.addInTheBeginning('U');
-		System.out.println(add.totalElements);
 		
 		String actual = add.toString();
 		String expected = "UHJTU";

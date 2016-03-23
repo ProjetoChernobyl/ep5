@@ -17,13 +17,17 @@ import org.alvorada.cc.ep5.util.Tools;
  */
 public class Main {
 	static String separator = System.getProperty("file.separator");
-	public static final String PATH_GENOMA = "resources" + separator + "genoma";
-	public static final String PATH_COOR = "resources" + separator + "inverte";
-	public static final String PATH_OUTPUT_FILE = "resources" + separator + "out";
+	public static final String PATH_GENOMA = "resources/genoma";
+	public static final String PATH_COOR = "resources/inverte";
+	public static final String PATH_OUTPUT_FILE = "resources/out";
 
-	static Node rootNode = new Node('R');
+	public static Node rootNode = new Node('R');
 
 	public static void main(String[] args) throws IOException {
+		
+	}
+	
+	public void start(){
 		/* Istanciando objetos das classes utilitárias */
 		Reader reader = new Reader();
 		Tools tools = new Tools();
@@ -33,7 +37,6 @@ public class Main {
 
 		/* Ler o arquivo Genoma */
 		String genomaFile = reader.readFile(PATH_GENOMA);
-		System.out.println(genomaFile);
 
 		/* Ler o arquivo de coordenadas inverte */
 		String inverteFile = reader.readFile(PATH_COOR);
@@ -52,7 +55,9 @@ public class Main {
 		Node[] nodes = structBuilder.stringToLinkedListInsideArray(genomaFile);
 		
 		/* O efetivamente invertendo as posições do array */
-		String result = linkedList.changeSubsequence(coordenadas, genomaFile);
+		nodes = linkedList.changeSubsequenceSchemaTwo(coordenadas, nodes);
+		
+		String result = rootNode.toString();
 		
 		/* Retornando o conteúdo alterado e salvando em um arquivo de saída */
 		writer.writeFile(PATH_OUTPUT_FILE, result);

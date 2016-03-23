@@ -11,9 +11,7 @@ import java.nio.file.Paths;
 public class Reader {
 	Charset utf8 = StandardCharsets.UTF_8;
 
-	@SuppressWarnings({ "resource", "unused" })
 	public String readFile(String filePath) {
-		// TODO le o arquivo Genoma que contém uma linha
 		Path genoma = Paths.get(filePath);
 		String string = null;
 		try {
@@ -29,8 +27,6 @@ public class Reader {
 	}
 
 	public String readFileToArray(String filePath) {
-		// TODO talvez não seja necessário ele lê um arquivo e retorna um array
-		// de inteiros
 
 		Path coordenada = Paths.get(filePath);
 		String string = null;

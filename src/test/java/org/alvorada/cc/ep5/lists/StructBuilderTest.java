@@ -38,14 +38,39 @@ public class StructBuilderTest {
 
 	@Test
 	public void testStringToLinkedListInsideArray() {
-		
-		String input = "TTGTCACATG";
+		String input = "TTACTGCATG";
 		
 		Node[] actuals = classUnderTest.stringToLinkedListInsideArray(input);
 		Node[] expecteds = initNodes();
+		
 		
 		Assert.assertArrayEquals(expecteds, actuals);
 		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
