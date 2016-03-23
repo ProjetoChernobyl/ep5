@@ -2,56 +2,102 @@ package org.alvorada.cc.ep5.lists;
 
 import org.alvorada.cc.ep5.domain.Node;
 
+/**
+ * Classe com os métodos para alterar as posições de uma lista
+ * 
+ * @author ricardo
+ *
+ */
 public class LinkedList {
 
-	public Node[] changeSubsequenceSchemaOne(int[] coordenadasDasSubsequencias, Node[] nodes) {
-		
-		for (int i = 0; i < coordenadasDasSubsequencias.length;) {
-			int beginPosition = coordenadasDasSubsequencias[i];
-			i++;
-			int endPosition = coordenadasDasSubsequencias[i];
-			i++;			
-			
-			int begin = beginPosition - 1; 
-			int end = endPosition -1;
-			
-			int afterBegin = begin -1;
-			int afterEnd = end -1;
-			int beforeEnd = end +1;
-			
-			nodes[afterBegin].setNext(nodes[end]);
-			nodes[end].setNext(nodes[begin]);
-			nodes[afterEnd].setNext(nodes[beforeEnd]);			
-		}
-		return nodes;
-	}
-	
-public Node[] changeSubsequenceSchemaTwo(int[] coordenadasDasSubsequencias, Node[] nodes) {
-		
+	/**
+	 * Método que inverte a posição das letras trocando os ponteiros "próximo"
+	 * dos nós que estão inseridos no array
+	 * 
+	 * @param coordenadasDasSubsequencias
+	 * @param nodes
+	 * @return Node[]
+	 */
+	public Node[] changeSubsequenceSchemaTwo(int[] coordenadasDasSubsequencias, Node[] nodes) {
+
 		for (int i = 0; i < coordenadasDasSubsequencias.length;) {
 			int coordenadaInicial = coordenadasDasSubsequencias[i];
 			i++;
 			int coordenadaFinal = coordenadasDasSubsequencias[i];
 			i++;
-			
-			
-			int begin = coordenadaInicial - 1; 
-			int end = coordenadaFinal -1;
-			
-			int afterBegin = begin -1;
-			int beforeEnd = end +1;
-			
-			
-			nodes[afterBegin].setNext(nodes[end]);
-			
-			for (int j = end; j > begin ; j--) {
-				nodes[j].setNext(nodes[j-1]);
+
+			int begin = coordenadaInicial - 1;
+			int end = coordenadaFinal - 1;
+
+			if (coordenadaInicial != coordenadaFinal) {
+
+				if (begin == 0) {
+					changeInitialPosition(begin, end, nodes);
+				} else if (end == nodes.length) {
+					changeLastPosition(begin, end, nodes);
+				} else {
+					changeMiddlePositions(begin, end, nodes);
+				}
 			}
-			
-			nodes[begin].setNext(nodes[beforeEnd]);
-			
+
 		}
 		return nodes;
+	}
+
+	/**
+	 * Método chamado para alterar as posições quando a primeira posição a ser
+	 * trocada é a posição 0 (inicial) do array
+	 * 
+	 * @param begin
+	 * @param end
+	 * @param nodes
+	 */
+	private void changeInitialPosition(int begin, int end, Node[] nodes) {
+		/*
+		 * TODO use o código do método midlleposition como exemplo a problema
+		 * esta na posição inicial para resolver use o inicio real do aray que é
+		 * Main.rootNode ele está na posição -1
+		 */
+
+	}
+
+	/**
+	 * Método para alterar posições do array quando a ultima posição a ser
+	 * alterada também é a última posição do array
+	 * 
+	 * @param begin
+	 * @param end
+	 * @param nodes
+	 */
+	private void changeLastPosition(int begin, int end, Node[] nodes) {
+		/*
+		 * TODO use o código do método midlleposition como exemplo a problema
+		 * esta na posição final depois de inverter os caracteres o algoritmos 
+		 * linka o ultimo elemento para o proximo que não foi alterado para que a lista
+		 * continue, como estamos trocando o último elemento não existe continuaçãõ da lista o gera
+		 * um indexOfBounds já qeu ele linka para um elemento inexistente
+		 */
+
+	}
+
+	/**
+	 * método chamado para trocar posições que estejam no meio do array de nodes
+	 * 
+	 * @param begin
+	 * @param end
+	 * @param nodes
+	 */
+	public void changeMiddlePositions(int begin, int end, Node[] nodes) {
+		int beforeBegin = begin - 1;
+		int afterEnd = end + 1;
+
+		nodes[beforeBegin].setNext(nodes[end]);
+
+		for (int j = end; j > begin; j--) {
+			nodes[j].setNext(nodes[j - 1]);
+		}
+
+		nodes[begin].setNext(nodes[afterEnd]);
 	}
 
 }
