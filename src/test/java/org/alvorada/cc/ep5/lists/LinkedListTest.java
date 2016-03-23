@@ -48,7 +48,7 @@ public class LinkedListTest {
 		int[] inverte = {3, 6};
 		Node[] nodes = initNodes(rootNodeTest);
 		
-		Node[] actuals = classUnderTest.changeSubsequenceSchemaTwo(inverte, nodes);
+		Node[] actuals = classUnderTest.changeSubsequenceSchemaTwo(inverte, nodes, new Node('R'));
 		Node[] expecteds = nodes;
 		Assert.assertArrayEquals(expecteds, actuals);
 	}
@@ -59,7 +59,7 @@ public class LinkedListTest {
 		int[] inverte = {3, 6};
 		Node[] nodes = initNodes(node);
 				
-		classUnderTest.changeSubsequenceSchemaTwo(inverte, nodes);
+		classUnderTest.changeSubsequenceSchemaTwo(inverte, nodes, node);
 		String actual1 = node.toString();
 		//ordem inicial:    TTACTGCATG
 		String expected1 = "TTGTCACATG";
@@ -73,7 +73,7 @@ public class LinkedListTest {
 		int[] inverte = {3, 3};
 		Node[] nodes = initNodes(node);
 				
-		classUnderTest.changeSubsequenceSchemaTwo(inverte, nodes);
+		classUnderTest.changeSubsequenceSchemaTwo(inverte, nodes, node);
 		String actual1 = node.toString();
 		//ordem inicial:    TTACTGCATG
 		String expected1 = "TTACTGCATG";
@@ -87,7 +87,7 @@ public class LinkedListTest {
 		int[] inverte = {1, 4};
 		Node[] nodes = initNodes(node);
 				
-		classUnderTest.changeSubsequenceSchemaTwo(inverte, nodes);
+		classUnderTest.changeInitialPosition(0, 3, nodes, node);
 		String actual = node.toString();
 		//ordem inicial:   TTACTGCATG
 		String expected = "CATTTGCATG";
@@ -101,7 +101,7 @@ public class LinkedListTest {
 		int[] inverte = {7, 10};
 		Node[] nodes = initNodes(node);
 				
-		classUnderTest.changeSubsequenceSchemaTwo(inverte, nodes);
+		classUnderTest.changeSubsequenceSchemaTwo(inverte, nodes, node);
 		String actual = node.toString();
 		//ordem inicial:   TTACTGCATG
 		String expected = "TTACTGGTAC";
