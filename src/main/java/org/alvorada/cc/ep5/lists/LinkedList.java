@@ -70,14 +70,13 @@ public class LinkedList {
 	 * @param nodes
 	 */
 	private void changeLastPosition(int begin, int end, Node[] nodes) {
-		/*
-		 * TODO use o código do método midlleposition como exemplo a problema
-		 * esta na posição final depois de inverter os caracteres o algoritmos 
-		 * linka o ultimo elemento para o proximo que não foi alterado para que a lista
-		 * continue, como estamos trocando o último elemento não existe continuaçãõ da lista o gera
-		 * um indexOfBounds já qeu ele linka para um elemento inexistente
-		 */
+		int beforeBegin = begin - 1;
 
+		nodes[beforeBegin].setNext(nodes[end]);
+		nodes[begin].setNext(null);
+		for (int j = end; j > begin; j--) {
+			nodes[j].setNext(nodes[j - 1]);
+		}
 	}
 
 	/**
