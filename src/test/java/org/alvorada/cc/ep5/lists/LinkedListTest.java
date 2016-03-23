@@ -1,14 +1,22 @@
 package org.alvorada.cc.ep5.lists;
 
 import org.alvorada.cc.ep5.domain.Node;
-import org.junit.Assert;
-import org.junit.Test;
 
 public class LinkedListTest {
 	
 	LinkedList classUnderTest = new LinkedList();
 	Node rootNodeTest = new Node('R');
 	
+	/** 
+	 * Cria um array de nodes com a posição TTACTGCATG
+	 * 
+	 * EXEMPLOS DO SLIDE
+	 * ordem inicial
+	 * ordem inicial: TT ACTG CATG
+	 * ordem final  : TT GTCA CATG
+	 * os espaços são apenas para evidanciar a troda o arquivo não tem eles
+	 * return Node[]
+	 * */
 	public Node[] initNodes(Node node){
 		Node[] nodes = new Node[10];
 		nodes[0] = new Node('T');
@@ -36,25 +44,13 @@ public class LinkedListTest {
 	}
 	
 	@Test
-	public void testChangeSubsequenceSchemaOneArray() {
+	public void testChangeSubsequenceSchemaTwoArray() {
 		int[] inverte = {3, 6};
 		Node[] nodes = initNodes(rootNodeTest);
 		
-		Node[] actuals = classUnderTest.changeSubsequenceSchemaOne(inverte, nodes);
+		Node[] actuals = classUnderTest.changeSubsequenceSchemaTwo(inverte, nodes);
 		Node[] expecteds = nodes;
 		Assert.assertArrayEquals(expecteds, actuals);
-	}
-	
-	public void testChangeSubsequenceSchemaOnetoString() {
-		Node node = new Node('R');
-		int[] inverte = {3, 6};
-		Node[] nodes = initNodes(node);
-		
-		classUnderTest.changeSubsequenceSchemaOne(inverte, nodes);
-		String actual1 = node.toString();
-		String expected1 = "TTGTCACATG";
-		
-		Assert.assertEquals(expected1, actual1);
 	}
 	
 	@Test
@@ -65,15 +61,52 @@ public class LinkedListTest {
 				
 		classUnderTest.changeSubsequenceSchemaTwo(inverte, nodes);
 		String actual1 = node.toString();
+		//ordem inicial:    TTACTGCATG
 		String expected1 = "TTGTCACATG";
 		
 		Assert.assertEquals(expected1, actual1);
 	}
+	
+	@Test
+	public void testChangeSubsequenceSchemaTwoSamePositionBeginAndEnd() {
+		Node node = new Node('R');
+		int[] inverte = {3, 3};
+		Node[] nodes = initNodes(node);
+				
+		classUnderTest.changeSubsequenceSchemaTwo(inverte, nodes);
+		String actual1 = node.toString();
+		//ordem inicial:    TTACTGCATG
+		String expected1 = "TTACTGCATG";
+		
+		Assert.assertEquals(expected1, actual1);
+	}
+	
+	@Test
+	public void testChangeInitialPosition(){
+		Node node = new Node('R');
+		int[] inverte = {1, 4};
+		Node[] nodes = initNodes(node);
+				
+		classUnderTest.changeSubsequenceSchemaTwo(inverte, nodes);
+		String actual = node.toString();
+		//ordem inicial:   TTACTGCATG
+		String expected = "CATTTGCATG";
+		
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testChangeLastPosition(){
+		Node node = new Node('R');
+		int[] inverte = {7, 10};
+		Node[] nodes = initNodes(node);
+				
+		classUnderTest.changeSubsequenceSchemaTwo(inverte, nodes);
+		String actual = node.toString();
+		//ordem inicial:   TTACTGCATG
+		String expected = "TTACTGGTAC";
+		
+		Assert.assertEquals(expected, actual);
+	}
+	
 }
-
-
-
-
-
-
-
