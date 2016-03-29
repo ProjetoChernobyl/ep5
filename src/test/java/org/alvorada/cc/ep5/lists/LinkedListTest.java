@@ -89,10 +89,9 @@ public class LinkedListTest {
 		int[] inverte = {1, 4};
 		Node[] nodes = initNodes(node);
 				
-		classUnderTest.changeInitialPosition(0, 3, nodes, node);
-		String actual = node.toString();
+		char actual = classUnderTest.changeInitialPosition(0, 3, nodes, node);
 		//ordem inicial:   TTACTGCATG
-		String expected = "CATTTGCATG";
+		char expected = 'C'+'A'+'T'+'T'+'T'+'G'+'C'+'A'+'T'+'G';
 		
 		Assert.assertEquals(expected, actual);
 	}

@@ -52,26 +52,30 @@ public class LinkedList {
 	 * @param end
 	 * @param nodes
 	 */
-	public void changeInitialPosition(int begin, int end, Node[] nodes, Node rootNode) {
-		
-		/*
-		 * TODO use o código do método midlleposition como exemplo a problema
-		 * esta na posição inicial para resolver use o inicio real do aray que é
-		 * Main.rootNode ele está na posição -1
-		 */
-		 
-		int beforeBegin = begin - 1;
+	public char changeInitialPosition(int begin, int end, Node[] nodes, Node rootNode) {
 
 		int afterEnd = end + 1;
 		
-		rootNode.setNext(nodes[end-1]);
-		
-		for (int j = end-1; j > beforeBegin; j--) {
+		for (int j = end; j > begin; j--) {
 			nodes[j].setNext(nodes[j - 1]);
 		}
-
+		
+		rootNode.setNext(nodes[end]);
 		nodes[begin].setNext(nodes[afterEnd]);
-
+		
+		Node aux = new Node('W');
+		char aux2 = 0;
+		
+		for (int i = 0; i < nodes.length; i++) {
+			if (i == 0) {
+				aux = rootNode.getNext();
+				aux2 += aux.getValue();
+			} else {
+				aux = aux.getNext();
+				aux2 += aux.getValue();
+			}		
+		}
+		return aux2;
 	}
 
 	/**
